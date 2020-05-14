@@ -20,4 +20,24 @@ class RingBuffer:
             self.storage.add_to_head(item)
 
     def get(self):
-        pass
+        # If storage.length is 0
+        if self.storage.length == 0:
+            # Return
+            return []
+
+        # Else:
+        else:
+            # Create a list to save all the values
+            my_list = []
+            # Set current_node to storage.head
+            current_node = self.storage.head
+
+            # While current_node is not empty
+            while current_node != None:
+                # append current_node to storage
+                my_list.append(current_node.value)
+                # set current_node to current_node.next
+                current_node = current_node.next
+
+            # Return the list
+            return my_list
