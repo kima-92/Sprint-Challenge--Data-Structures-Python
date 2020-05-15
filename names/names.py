@@ -1,5 +1,5 @@
 import time
-from doubly_linked_list import DoublyLinkedList
+from binary_search_tree import BSTNode
 
 start_time = time.time()
 
@@ -23,6 +23,22 @@ for name_1 in names_1:
 The runtime was:
 10.852504014968872 seconds
 """
+
+# Create a BST for names_1 
+bst_1 = BSTNode(names_1[0])
+
+# For range from the second item in names_1 till the rest of it's length
+for i in range(1, len(names_1)):
+    # Add every other item to bst_1
+    bst_1.insert(names_1[i])
+
+# For range from 0 till the end og names_2
+for i in range(0, len(names_2)):
+    # Compare items in bst_1 to names_2
+    # If bst contains the name in index i
+    if bst_1.contains(names_2[i]):
+        # Store that name in duplicates
+        duplicates.append(names_2[i])
 
 
 
